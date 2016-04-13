@@ -13,10 +13,14 @@ server.listen(3000, function  () {
 });
 
 /**
- * Serve static assets out of public
+ * Serve static assets out of public. This is a middleware.
  */
 app.use(express.static('public'));
 
+/**
+ * this is not neccesary due that the middleware before make the same task. We just type it to ensure that index.html gonna be
+ * back to the user and understood where that happens. But we can delete this route
+ */
 app.get('/', function (req, res) {
     res.sendfile('./public/index.html');
 });
